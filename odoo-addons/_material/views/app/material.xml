@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_master_material_tree" model="ir.ui.view">
+        <field name="name">master.material.tree</field>
+        <field name="model">master.material</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="buy_price"/>
+                <field name="supplier_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_master_material_form" model="ir.ui.view">
+        <field name="name">master.material.form</field>
+        <field name="model">master.material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                            <field name="supplier_id"/>
+                        </group>
+                        <group>
+                            <field name="type"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="buy_price"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_master_material_search" model="ir.ui.view">
+        <field name="name">master.material.search</field>
+        <field name="model">master.material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <filter name="filter_fabric" string="Type Fabric" domain="[('type', '=', 'fabric')]"/>
+                <filter name="filter_jeans" string="Type Jeans" domain="[('type', '=', 'jeans')]"/>
+                <filter name="filter_cotton" string="Type Cotton" domain="[('type', '=', 'cotton')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Type" name="group_by_type" context="{'group_by': 'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_master_material">
+        <field name="name">Material</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">master.material</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Material
+            </p>
+        </field>
+    </record>
+</odoo>

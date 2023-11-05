@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8089:8069"
+      - "8059:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -26,6 +26,8 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
     secrets:
       - postgresql_password
 volumes:

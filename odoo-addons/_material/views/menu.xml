@@ -1,0 +1,7 @@
+<?xlm version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_root" name="Material App" sequence="-1">
+        <menuitem id="menu_master_material" name="Material" action="action_master_material" sequence="1" />
+        <menuitem id="menu_master_supplier" name="Supplier" action="action_master_supplier" sequence="2" />
+    </menuitem>
+</odoo>
